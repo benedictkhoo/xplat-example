@@ -190,6 +190,17 @@
           }
         }
       }
+    },
+    "nativescript-client": {
+      "root": "apps/nativescript-client/",
+      "sourceRoot": "apps/nativescript-client/app",
+      "projectType": "application",
+      "prefix": "xe",
+      "schematics": {
+        "@schematics/angular:component": {
+          "styleext": "scss"
+        }
+      }
     }
   },
   "cli": {

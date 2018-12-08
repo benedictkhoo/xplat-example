@@ -22,6 +22,9 @@
     },
     "web-client-e2e": {
       "tags": []
+    },
+    "nativescript-client": {
+      "tags": []
     }
   }
 }
