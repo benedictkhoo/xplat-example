@@ -13,6 +13,15 @@
     },
     "xplat": {
       "tags": []
+    },
+    "web-client": {
+      "tags": [
+        "web",
+        "client"
+      ]
+    },
+    "web-client-e2e": {
+      "tags": []
     }
   }
 }
