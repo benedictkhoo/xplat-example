@@ -12,6 +12,6 @@ install: npm ci
 jobs:
   include:
     - stage: unit tests
-      script: npm run postinstall.web && ng test web-client:ci
+      script: npm run postinstall.web && ng test web-client -c=ci
     - stage: e2e tests
-      script: npm run postinstall.web && ng e2e web-client-e2e:ci
+      script: npm run postinstall.web && ng e2e web-client-e2e -c=ci
