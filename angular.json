@@ -147,6 +147,11 @@
               "apps/web-client/src/favicon.ico",
               "apps/web-client/src/assets"
             ]
+          },
+          "configurations": {
+            "ci": {
+              "browsers": "ChromeHeadlessNoSandbox"
+            }
           }
         },
         "lint": {
@@ -177,6 +182,9 @@
           "configurations": {
             "production": {
               "devServerTarget": "web-client:serve:production"
+            },
+            "ci": {
+              "protractorConfig": "apps/web-client-e2e/protractor-ci.conf.js"
             }
           }
         },
