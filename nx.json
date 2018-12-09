@@ -25,6 +25,9 @@
     },
     "nativescript-client": {
       "tags": []
+    },
+    "electron-client": {
+      "tags": []
     }
   }
 }

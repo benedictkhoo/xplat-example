@@ -1,0 +1,40 @@
+{
+  "name": "electron-client",
+  "version": "0.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "build": {
+    "appId": "com.test.electron",
+    "productName": "Electron Client",
+    "copyright": "Copyright © 2018-2019 xe",
+    "asar": false,
+    "npmRebuild": false,
+    "directories": {
+      "buildResources": "icons",
+      "output": "../electron-client-packages"
+    },
+    "mac": {
+      "category": "public.app-category.developer-tools",
+      "icon": "icon.png"
+    },
+    "win": {
+      "target": "nsis",
+      "icon": "icon.ico"
+    },
+    "linux": {
+      "icon": "icon.png",
+      "target": [
+        "AppImage",
+        "deb",
+        "tar.gz"
+      ],
+      "synopsis": "Client",
+      "category": "Development"
+    },
+    "nsis": {
+      "createDesktopShortcut": "always",
+      "installerIcon": "icon.ico",
+      "artifactName": "Client-Setup-${version}.${ext}"
+    }
+  }
+}
