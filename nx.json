@@ -28,6 +28,15 @@
     },
     "electron-client": {
       "tags": []
+    },
+    "web-admin": {
+      "tags": [
+        "web",
+        "admin"
+      ]
+    },
+    "web-admin-e2e": {
+      "tags": []
     }
   }
 }
