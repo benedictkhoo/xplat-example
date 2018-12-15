@@ -1,0 +1,49 @@
+{
+  "name": "electron-admin",
+  "version": "1.0.0",
+  "description": "Admin description.",
+  "main": "index.js",
+  "author": {
+    "name": "Your name",
+    "email": "name@company.com"
+  },
+  "homepage": "https://nstudio.io/xplat",
+  "repository": {
+    "url": "https://github.com/nstudio/xplat"
+  },
+  "license": "MIT",
+  "build": {
+    "appId": "com.company.Admin",
+    "productName": "Admin",
+    "copyright": "Copyright © 2018-2019 xe",
+    "asar": false,
+    "npmRebuild": false,
+    "directories": {
+      "buildResources": "icons",
+      "output": "../electron-admin-packages"
+    },
+    "mac": {
+      "category": "public.app-category.developer-tools",
+      "icon": "icon.png"
+    },
+    "win": {
+      "target": "nsis",
+      "icon": "icon.ico"
+    },
+    "linux": {
+      "icon": "icon.png",
+      "target": [
+        "AppImage",
+        "deb",
+        "tar.gz"
+      ],
+      "synopsis": "Admin",
+      "category": "Development"
+    },
+    "nsis": {
+      "createDesktopShortcut": "always",
+      "installerIcon": "icon.ico",
+      "artifactName": "Admin-Setup-${version}.${ext}"
+    }
+  }
+}

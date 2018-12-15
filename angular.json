@@ -438,6 +438,84 @@
           "styleext": "scss"
         }
       }
+    },
+    "electron-admin": {
+      "root": "apps/web-admin/",
+      "sourceRoot": "apps/web-admin/src",
+      "projectType": "application",
+      "prefix": "xe",
+      "schematics": {
+        "@schematics/angular:component": {
+          "styleext": "scss"
+        }
+      },
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/electron-admin",
+            "index": "apps/web-admin/src/index.html",
+            "main": "apps/web-admin/src/main.electron.ts",
+            "polyfills": "apps/web-admin/src/polyfills.ts",
+            "tsConfig": "apps/web-admin/tsconfig.app.json",
+            "assets": [
+              "apps/web-admin/src/favicon.ico",
+              "apps/web-admin/src/assets",
+              {
+                "glob": "**/*",
+                "input": "apps/electron-admin/src/",
+                "ignore": [
+                  "**/*.ts"
+                ],
+                "output": ""
+              }
+            ],
+            "styles": [
+              "xplat/web/scss/_index.scss",
+              "apps/web-admin/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/web-admin/src/environments/environment.ts",
+                  "with": "apps/web-admin/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "electron-admin:build",
+            "port": 5200
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "electron-admin:build:production"
+            }
+          }
+        }
+      }
     }
   },
   "cli": {

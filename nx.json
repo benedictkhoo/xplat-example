@@ -40,6 +40,9 @@
     },
     "nativescript-admin": {
       "tags": []
+    },
+    "electron-admin": {
+      "tags": []
     }
   }
 }
