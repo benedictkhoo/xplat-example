@@ -13,6 +13,7 @@ addons:
 cache: npm
 
 script:
+  - ng lint ${APP_ID}
   - ng test ${APP_ID} -c=ci
   - ng e2e ${APP_ID}-e2e -c=ci
 
