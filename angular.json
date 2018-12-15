@@ -427,6 +427,17 @@
           }
         }
       }
+    },
+    "nativescript-admin": {
+      "root": "apps/nativescript-admin/",
+      "sourceRoot": "apps/nativescript-admin/app",
+      "projectType": "application",
+      "prefix": "xe",
+      "schematics": {
+        "@schematics/angular:component": {
+          "styleext": "scss"
+        }
+      }
     }
   },
   "cli": {

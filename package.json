@@ -5,6 +5,8 @@
   "scripts": {
     "ng": "ng",
     "start.electron.client": "npm run prepare.electron.client && npm-run-all -p serve.electron.client.target serve.electron.client",
+    "start.nativescript.admin.ios": "cd apps/nativescript-admin && tns run ios --emulator --bundle --hmr",
+    "start.nativescript.admin.android": "cd apps/nativescript-admin && tns run android --emulator --bundle --hmr",
     "start.nativescript.client.ios": "cd apps/nativescript-client && tns run ios --emulator --bundle --hmr",
     "start.nativescript.client.android": "cd apps/nativescript-client && tns run android --emulator --bundle --hmr",
     "start.web.admin": "ng serve web-admin --aot",
@@ -41,6 +43,7 @@
     "help": "./node_modules/.bin/nx help",
     "clean.shared": "cd libs/ && git clean -dfX && cd ../xplat/ && git clean -dfX",
     "clean": "npx rimraf -- hooks node_modules package-lock.json && npm i",
+    "clean.nativescript.admin": "cd apps/nativescript-admin && npx rimraf -- hooks node_modules platforms package-lock.json && npm i && npx rimraf -- package-lock.json",
     "clean.nativescript.client": "cd apps/nativescript-client && npx rimraf -- hooks node_modules platforms package-lock.json && npm i && npx rimraf -- package-lock.json",
     "postinstall": "ELECTRON_BUILDER_ALLOW_UNRESOLVED_DEPENDENCIES=true npx electron-builder install-app-deps",
     "postinstall.electron": "node tools/electron/postinstall",
