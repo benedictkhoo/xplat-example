@@ -1,6 +1,10 @@
 dist: trusty
 sudo: false
 
+env:
+  - APP_ID=web-admin
+  - APP_ID=web-client
+
 language: node_js
 
 addons:
@@ -8,18 +12,17 @@ addons:
 
 cache: npm
 
-install: npm ci
+script:
+  - ng test ${APP_ID} -c=ci
+  - ng e2e ${APP_ID}-e2e -c=ci
 
 jobs:
   include:
-    - stage: unit tests
-      script: npm run postinstall.web && ng test web-client -c=ci
-    - stage: e2e tests
-      script: npm run postinstall.web && ng e2e web-client-e2e -c=ci
-
-deploy:
-  provider: script
-  skip_cleanup: true
-  script: npm run release
-  on:
-    branch: master
+    - stage: deploy
+      env: APP_ID=none
+      deploy:
+        provider: script
+        skip_cleanup: true
+        script: npm run release
+        on:
+          branch: master
