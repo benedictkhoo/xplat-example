@@ -1,10 +1,6 @@
 dist: trusty
 sudo: false
 
-env:
-  - APP_ID=web-admin
-  - APP_ID=web-client
-
 language: node_js
 
 addons:
@@ -12,18 +8,27 @@ addons:
 
 cache: npm
 
-script:
-  - ng lint ${APP_ID}
-  - ng test ${APP_ID} -c=ci
-  - ng e2e ${APP_ID}-e2e -c=ci
-
 jobs:
   include:
-    - stage: deploy
-      env: APP_ID=none
-      deploy:
-        provider: script
-        skip_cleanup: true
-        script: npm run release
-        on:
-          branch: master
+    - stage: lint
+      script: ng lint web-admin
+      name: 'Lint web-admin project'
+    - script: ng lint web-client
+      name: 'Lint web-client project'
+    - stage: unit tests
+      script: ng test web-admin -c=ci
+      name: 'Unit test web-admin project'
+    - script: ng test web-client -c=ci
+      name: 'Unit test web-client project'
+    - stage: e2e tests
+      script: ng e2e web-admin-e2e -c=ci
+      name: 'E2E web-admin project'
+    - script: ng e2e web-client-e2e -c=ci
+      name: 'E2E web-client project'
+
+deploy:
+  provider: script
+  skip_cleanup: true
+  script: npm run release
+  on:
+    branch: master
